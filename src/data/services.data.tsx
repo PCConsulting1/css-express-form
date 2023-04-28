@@ -1,6 +1,6 @@
-import ScreenSearchDesktopTwoToneIcon from '@mui/icons-material/ScreenSearchDesktopTwoTone'
-import PaidTwoToneIcon from '@mui/icons-material/PaidTwoTone'
-import ContactSupportTwoToneIcon from '@mui/icons-material/ContactSupportTwoTone'
+import ScreenSearchDesktopTwoToneIcon from '@mui/icons-material/ScreenSearchDesktopTwoTone';
+import PaidTwoToneIcon from '@mui/icons-material/PaidTwoTone';
+import ContactSupportTwoToneIcon from '@mui/icons-material/ContactSupportTwoTone';
 
 const services = [
   {
@@ -18,6 +18,6 @@ const services = [
     title: 'Expert help',
     description: 'Lorem ipsum',
   },
-]
+];
 
-export default services
+export default services;
