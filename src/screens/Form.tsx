@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import FormInput from '../components/inputs/FormInput';
 
 export default function () {
   const { handleSubmit, control, formState } = useForm({
@@ -13,6 +14,13 @@ export default function () {
     <form
       onSubmit={handleSubmit(onSubmit)}
       style={{ paddingTop: 20, maxWidth: '100vw' }}
-    ></form>
+    >
+      <FormInput
+        variant="phone"
+        name="test"
+        control={control}
+        label="this is a test"
+      />
+    </form>
   );
 }
