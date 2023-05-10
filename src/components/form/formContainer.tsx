@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import { Control, FieldValues } from 'react-hook-form';
 import FormInput from '../inputs/FormInput';
 //TODO: take a question object and display it
@@ -7,7 +6,7 @@ import FormInput from '../inputs/FormInput';
 
 interface Props {
   control: Control<FieldValues, any>;
-  questions: { name: string; label: string }[];
+  questions: { name: string; label: string; variant?: string }[];
 }
 
 export default function ({ control, questions }: Props) {
@@ -22,6 +21,7 @@ export default function ({ control, questions }: Props) {
             name={question.name}
             control={control}
             label={question.label}
+            variant={question.variant}
             key={question.name}
           />
         );

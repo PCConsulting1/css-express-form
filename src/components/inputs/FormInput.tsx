@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
+
 import {
   Controller,
   FieldError,
@@ -13,6 +15,7 @@ import {
   FieldValues,
 } from 'react-hook-form';
 import { PatternFormat, NumericFormat } from 'react-number-format';
+import Question from './Question';
 
 const formats = {
   social: '### - ## - ####',
@@ -28,16 +31,14 @@ const rules = {
 };
 
 interface FieldProps {
-  label: string;
   value: FieldValue<any>;
   onChange: any;
   error?: FieldError | undefined;
 }
 
-const CustomField = ({ label, value, onChange, error }: FieldProps) => {
+const CustomField = ({ value, onChange, error }: FieldProps) => {
   return (
     <TextField
-      label={label}
       value={value}
       onChange={onChange}
       error={!!error}
@@ -68,17 +69,18 @@ const getInputType = (
   switch (variant) {
     case 'select':
       return (
-        <Box sx={{ width: 250, padding: 0, margin: 0 }}>
+        <Question>
+          <Typography>{label}</Typography>
           <Select
             variant="outlined"
             value={value || ''}
             displayEmpty
             onChange={onChange}
             error={!!error}
-            sx={{ width: '100%' }}
+            sx={{ width: 250 }}
           >
             <MenuItem value="" disabled>
-              {label}
+              Select an Option
             </MenuItem>
 
             {options &&
@@ -91,62 +93,70 @@ const getInputType = (
           <FormHelperText sx={{ color: 'red', position: 'relative', left: 25 }}>
             {error ? 'Required Field' : null}
           </FormHelperText>
-        </Box>
+        </Question>
       );
     case 'date':
     case 'phone':
     case 'social':
       return (
-        <PatternFormat
-          customInput={CustomField}
-          label={label}
-          format={formats[variant as keyof typeof formats]}
-          value={value}
-          onValueChange={(v: any) => {
-            onChange(v.value);
-          }}
-          valueIsNumericString
-          allowEmptyFormatting
-          error={error}
-        />
+        <Question>
+          <Typography>{label}</Typography>
+          <PatternFormat
+            customInput={CustomField}
+            format={formats[variant as keyof typeof formats]}
+            value={value}
+            onValueChange={(v: any) => {
+              onChange(v.value);
+            }}
+            valueIsNumericString
+            allowEmptyFormatting
+            error={error}
+          />
+        </Question>
       );
     case 'money':
       return (
-        <NumericFormat
-          label={label}
-          customInput={CustomField}
-          value={value}
-          onValueChange={(v: any) => {
-            onChange(v.floatValue);
-          }}
-          decimalScale={2}
-          fixedDecimalScale
-          prefix={'$'}
-          error={error}
-        />
+        <Question>
+          <Typography>{label}</Typography>
+          <NumericFormat
+            customInput={CustomField}
+            value={value}
+            onValueChange={(v: any) => {
+              onChange(v.floatValue);
+            }}
+            decimalScale={2}
+            fixedDecimalScale
+            prefix={'$'}
+            error={error}
+          />
+        </Question>
       );
     case 'checkbox':
       if (typeof value === 'string') {
-        throw new TypeError('checkbox defaultValue prop must be boolean');
+        value = false;
       }
       return (
         <FormControlLabel
+          label={label}
+          labelPlacement="top"
+          componentsProps={{ typography: { variant: 'body1' } }}
           control={
             <Checkbox color="primary" checked={value} onChange={onChange} />
           }
-          label={label}
         />
       );
     default:
       return (
-        <TextField
-          label={label}
-          value={value}
-          onChange={onChange}
-          error={!!error}
-          helperText={error ? error.message : null}
-          sx={{ minWidth: 250 }}
-        />
+        <Question>
+          <Typography>{label}</Typography>
+          <TextField
+            value={value}
+            onChange={onChange}
+            error={!!error}
+            helperText={error ? error.message : null}
+            sx={{ width: 250 }}
+          />
+        </Question>
       );
   }
 };

@@ -15,9 +15,9 @@ export const studentBasic = [
   { name: 'first_name', label: 'First name' },
   { name: 'middle_name', label: 'Middle name' },
   { name: 'last_name', label: 'Last name' },
-  { name: 'phone_number', label: 'Phone number' },
-  { name: 'email', label: 'Email' },
-  { name: 'birth_date', label: 'Birth date' },
+  { name: 'phone_number', label: 'Phone number', variant: 'phone' },
+  { name: 'email', label: 'Email', variant: 'email' },
+  { name: 'birth_date', label: 'Birth date', variant: 'date' },
 ];
 
 export const studentDemographic = [
