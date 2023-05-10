@@ -11,7 +11,7 @@ const academicYearEnd = academicYearStart + 1;
 const priorPriorYear = academicYearStart - 2;
 const priorYear = academicYearStart - 1;
 
-const studentBasic = [
+export const studentBasic = [
   { name: 'first_name', label: 'First name' },
   { name: 'middle_name', label: 'Middle name' },
   { name: 'last_name', label: 'Last name' },
@@ -20,7 +20,7 @@ const studentBasic = [
   { name: 'birth_date', label: 'Birth date' },
 ];
 
-const studentDemographic = [
+export const studentDemographic = [
   { name: 'citizenship', label: 'Citizenship status' },
   { name: 'street_address', label: 'Street address' },
   { name: 'street_address_line2', label: 'Street address (Line 2)' },
@@ -35,7 +35,7 @@ const studentDemographic = [
   },
 ];
 
-const finances = [
+export const finances = [
   {
     name: 'were_taxes_filed',
     label: `Did student file federal tax return for ${priorPriorYear}?`,
@@ -63,7 +63,7 @@ const finances = [
   },
 ];
 
-const completedTaxForms = [
+export const completedTaxForms = [
   {
     name: 'filed_schedule_1',
     label: 'Did you file an IRS Schedule 1',
@@ -78,7 +78,7 @@ const completedTaxForms = [
   },
 ];
 
-const uploadTaxForms = [
+export const uploadTaxForms = [
   {
     name: 'IRS_1040',
     label: 'Upload your IRS 1040 form',
@@ -97,7 +97,7 @@ const uploadTaxForms = [
   },
 ];
 
-const studentEarnings = [
+export const studentEarnings = [
   {
     name: 'income_earned_from_work',
     label: `Income earned from work in ${priorPriorYear}`,
@@ -118,7 +118,7 @@ const studentEarnings = [
   },
 ];
 
-const studentBenefits = [
+export const studentBenefits = [
   {
     name: 'expected_earnings_summer',
     label: `Expected earnings for summer of ${academicYearStart}`,
@@ -145,7 +145,7 @@ const studentBenefits = [
   },
 ];
 
-const studentLife = [
+export const studentLife = [
   {
     name: 'marital_status',
     label: 'Marital Status',
@@ -180,7 +180,7 @@ const studentLife = [
   },
 ];
 
-const studentSchool = [
+export const studentSchool = [
   {
     name: 'academic_year',
     label: 'current academic year grade level',
@@ -195,7 +195,7 @@ const studentSchool = [
   },
 ];
 
-const studentApplying = [
+export const studentApplying = [
   // TODO: pull college list from API for autocomplete
   {
     name: 'college_name',
@@ -221,7 +221,7 @@ const studentApplying = [
   },
 ];
 
-const student1040 = [
+export const student1040 = [
   {
     name: 'adjusted_gross_income',
     label: 'Line 11 - Adjusted gross income',
@@ -244,12 +244,12 @@ const student1040 = [
   },
 ];
 
-const studentSchedule3 = {
+export const studentSchedule3 = {
   name: 'education_credits',
   label: 'Schedule 3 line 3 - Education credits',
 };
 
-const studentAssets = [
+export const studentAssets = [
   {
     name: 'parent_help',
     label:
