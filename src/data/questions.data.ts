@@ -11,7 +11,7 @@ const academicYearEnd = academicYearStart + 1;
 const priorPriorYear = academicYearStart - 2;
 const priorYear = academicYearStart - 1;
 
-export const studentBasic = [
+export const Basic = [
   { name: 'first_name', label: 'First name' },
   { name: 'middle_name', label: 'Middle name' },
   { name: 'last_name', label: 'Last name' },
@@ -22,17 +22,20 @@ export const studentBasic = [
 
 export const studentDemographic = [
   { name: 'citizenship', label: 'Citizenship status' },
-  { name: 'street_address', label: 'Street address' },
-  { name: 'street_address_line2', label: 'Street address (Line 2)' },
-  { name: 'city', label: 'City' },
-  { name: 'state', label: 'State' },
-  { name: 'zip', label: 'Zip' },
-  { name: 'social', label: 'Social security' },
+  { name: 'social', label: 'Social security', variant: 'social' },
   {
     name: 'CBFinAidID',
     label: 'CBFinAidID',
     help: 'This is the ID that is given to the student if they have completed the CSS Profile before',
   },
+];
+
+export const location = [
+  { name: 'street_address', label: 'Street address' },
+  { name: 'street_address_line2', label: 'Street address (Line 2)' },
+  { name: 'city', label: 'City' },
+  { name: 'state', label: 'State' },
+  { name: 'zip', label: 'Zip' },
 ];
 
 export const finances = [
